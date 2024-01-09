@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {View, Text, TouchableOpacity,StyleSheet} from 'react-native';
-import  quizData  from './quizeData'
+import  quizData  from './QuizData'
 
 const Quiz = () => {
 	const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -47,8 +47,8 @@ const Quiz = () => {
 		setTimeLeft(10);
 	};
 	// Display questions and answers when the quiz is completed
-	const displayAnswers =
-		quizData?.map((question, index) => (
+	const displayAnswers =()=>{
+		quizData.map((question, index) => (
 			<View key={index}>
 				<Text style={styles.question}>
 					Question {index + 1}:
@@ -61,6 +61,9 @@ const Quiz = () => {
 
 			</View>
 		));
+
+	}
+		
 
 	return (
 		<View style={styles.container}>

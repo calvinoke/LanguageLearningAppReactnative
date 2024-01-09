@@ -1,16 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView} from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from './screens/HomeScreen';
 import LessonSelection from './screens/LessonSelection';
 import Quiz from './screens/Quizes';
 import ProgressTracking from './screens/ProgressTracking';
+import Luganda from './screens/Luganda';
+import Luo from './screens/Luo';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+//import { createStackNavigator } from '@react-navigation/stack';
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import Fontisto from 'react-native-vector-icons/Fontisto'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
-//import LessonSelection from './screens/LessonSelection';
 
 
 
@@ -60,6 +61,28 @@ export default function App() {
           <FontAwesome name="gear" size={size} color={color} />
           ),
           }}/>
+
+<Tab.Screen name="luganda" component={Luganda} 
+        options={{
+          tabBarActiveTintColor:'#4caf50',
+          tabBarInactiveTintColor:'black',
+          headerShown:false,
+          tabBarIcon: ({ color, size }) => (
+          <FontAwesome name="gear" size={size} color={color} />
+          ),
+          }}/>
+
+<Tab.Screen name="Luo" component={Luo} 
+        options={{
+          tabBarActiveTintColor:'#4caf50',
+          tabBarInactiveTintColor:'black',
+          headerShown:false,
+          tabBarIcon: ({ color, size }) => (
+          <FontAwesome name="gear" size={size} color={color} />
+          ),
+          }}/>
+
+
           </Tab.Navigator>
           </NavigationContainer>
           );

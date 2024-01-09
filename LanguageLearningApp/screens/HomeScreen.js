@@ -1,32 +1,69 @@
-import React from 'react'
-import { StyleSheet, View } from 'react-native';
-import { Text } from 'react-native-paper';
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+} from "react-native";
 
-function HomeScreen() {
+const Welcome = ({ navigation }) => {
+ 
+
+
   return (
     <View style={styles.container}>
-      <View style={styles.titleContainer}>
-        <Text style={styles.title}>You do not have any thing here!!</Text>
+      <Image style={styles.image} source={require("../assets/welcome1.jpg")} />
+      <View style={styles.subContainer}>
+        <Text style={styles.text}>Ready For your Language Lesson Learning 2024 Jan?</Text>
       </View>
+      <TouchableOpacity onPress={() => {navigation.navigate("LessonSelection"); }}
+           style={styles.btn} >
+          <Text style={styles.btnText}>Let's Begin</Text>
+      </TouchableOpacity>
     </View>
-  )
-}
+  );    
+};
+
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    paddingHorizontal: 10,
-    paddingVertical: 20
+    backgroundColor: "#38588b",
+    alignItem: "center",
+    justifyContent: "center",
   },
-  titleContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1
+  image: {
+    width: "100%",
+    height: 350,
+    resizeMode: "contain",
   },
-  title: {
-    fontSize: 20
-  }
+  subContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItem: "center",
+    marginVertical: 20,
+    marginHorizontal: 20,
+  },
+  text: {
+    fontSize: 25,
+    fontWeight: "bold",
+    color: "#ffffff",
+  },
+  btn: {
+    backgroundColor: "#fac782",
+    paddingHorizontal: 5,
+    paddingVertical: 15,
+    position: "relative",
+    borderRadius: 15,
+    marginHorizontal: 20,
+    alignItems: "center",
+  },
+  btnText: {
+    fontSize: 20,
+    textAlign: "center",
+    color: "#ffffff",
+    letterSpacing: 1.1,
+  },
 });
-
-export default HomeScreen;
+export default Welcome;

@@ -1,27 +1,50 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import { Dropdown } from 'react-native-material-dropdown-v2-fixed';
+import { useNavigation } from '@react-navigation/native';
 
 const LessonSelection = () => {
     const [selected, setSelected] = React.useState("");
-      
-    const data = [
-        {key:'Luganda', value:'Luganda'},
+    
+    const navigation = useNavigation()
+
+
+    const datas = [
+        {key:'luganda', value:'Luganda'},
         {key:'Ateso', value:'Ateso'},
         {key:'Kishwahili', value:'Kishwahili'},
-        {key:'Alur', value:'Alur'},
+        {key:'Luo', value:'Luo'},
         {key:'Ngoni', value:'Ngoni'},
         {key:'English', value:'English'},
       ]
     
-      return(
+      return (
         <View style={{paddingHorizontal:15,marginTop:15}}>
-            <Dropdown setSelected={(text)=>setSelected(text)} data={data}  />
+        
+            <Text style={styles.text}>Language Selection??</Text>
+        
+            <Dropdown setSelected={(text)=>setSelected(text)} data={datas}  
             
-            <View style={{marginTop:50}}>
-            <Text>Selected Value : </Text>
-            <Text style={{marginTop:10,color:'gray'}}>{selected}</Text>
-        </View>
+            {...datas.map((data, index) =>{
+              return (
+                <TouchableOpacity>
+                  key={index}
+                  onPress = {() => navigation.navigate("luganda", {params:value})}
+                  <Text>{data.value}</Text>
+
+                  <Text>or</Text>
+
+                  onPress = {() => navigation.navigate("Luo", {params:value})}
+                </TouchableOpacity>
+                
+
+               
+
+              )
+            })}
+            />
+            
+        
           
           
     
